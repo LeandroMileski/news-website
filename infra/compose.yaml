@@ -1,7 +1,7 @@
 services:
   db:
     image: "postgres:16.8-alpine3.20"
-    env_file: ../.env
+    env_file: ../.env.development
     ports:
       - "5432:5432"
 # docker compose -f infra/compose.yaml up -d
