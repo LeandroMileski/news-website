@@ -3,7 +3,7 @@ import database from "infra/database.js";
 async function status(request, response) {
   const result = await database.query("SELECT 1 + 1 as sum;");
   console.log(result.rows);
-  response.status(200).json({ desc: "sao acima da media" });
+  response.status(200).json({ desc: "são acima da media" });
 }
 
 export default status;
