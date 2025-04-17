@@ -19,8 +19,9 @@ function Home() {
   return (
     <div style={containerStyle}>
       <h1 style={textStyle}>
-        Frota team rumo a <br />
-        Bariloche!🏂🍻😎
+        Under
+        <br />
+        Construction. 😎
       </h1>
       <style jsx>{`
         @keyframes fadeIn {
