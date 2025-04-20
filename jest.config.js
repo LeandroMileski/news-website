@@ -8,6 +8,7 @@ const createJestConfig = nextJest({
 });
 const jestConfig = createJestConfig({
   moduleDirectories: ["node_modules", "<rootDir>"],
+  //maximum test timeout
   testTimeout: 60000,
 });
 
