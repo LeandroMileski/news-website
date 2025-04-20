@@ -3,7 +3,7 @@ name: Automated Tests
 on:
   pull_request:
     paths-ignore:
-      - README.md # Trigger on pull requests
+      - README.md #Trigger on pull requests
 
 jobs:
   jest:
