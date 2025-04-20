@@ -1,9 +1,7 @@
 # workflow: installing dependencies and running scripts npm ci and npm test
 name: Automated Tests
-on:
-  pull_request:
-    paths-ignore:
-      - README.md #Trigger on pull requests
+on: pull_request # Trigger on pull requests
+
 
 jobs:
   jest:
