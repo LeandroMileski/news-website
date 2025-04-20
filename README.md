@@ -19,65 +19,70 @@ The News Website is being developed in JavaScript (100%) and is designed to deli
 ## Milestones
 
 ### Milestone #0: Under Construction
+
 **Status**: Closed  
 **Completion**: 100%  
 **Description**: Initial setup and basic configurations for the project.
 
 #### Issues Completed:
+
 1. **Config .prettierignore**  
-   *Status*: Closed  
-   *Description*: Configured `.prettierignore` file for the project.  
+   _Status_: Closed  
+   _Description_: Configured `.prettierignore` file for the project.  
    [Issue #5](https://github.com/LeandroMileski/news-website/issues/5)
 
 2. **Program page "Under construction"**  
-   *Status*: Closed  
-   *Description*: Created a placeholder page with "Under construction" messaging.  
+   _Status_: Closed  
+   _Description_: Created a placeholder page with "Under construction" messaging.  
    [Issue #4](https://github.com/LeandroMileski/news-website/issues/4)
 
 3. **Definition of style and configure**  
-   *Status*: Closed  
-   *Description*: Defined the project's initial styles and configuration.  
+   _Status_: Closed  
+   _Description_: Defined the project's initial styles and configuration.  
    [Issue #3](https://github.com/LeandroMileski/news-website/issues/3)
 
 4. **Domain .com**  
-   *Status*: Closed  
-   *Description*: Configured the `.com` domain for the project.  
+   _Status_: Closed  
+   _Description_: Configured the `.com` domain for the project.  
    [Issue #2](https://github.com/LeandroMileski/news-website/issues/2)
 
 ---
 
 ### Milestone #1: Foundation
+
 **Status**: Open  
 **Completion**: 55%  
 **Description**: Establish the foundational structure of the project, including databases, migrations, and automation.
 
 #### Issues Completed:
+
 1. **Database (Homologation and Production)**  
-   *Status*: Closed  
-   *Description*: Established homologation and production databases.  
+   _Status_: Closed  
+   _Description_: Established homologation and production databases.  
    [Issue #12](https://github.com/LeandroMileski/news-website/issues/12)
 
 2. **Migrations**  
-   *Status*: Closed  
-   *Description*: Created and tested database migrations.  
+   _Status_: Closed  
+   _Description_: Created and tested database migrations.  
    [Issue #9](https://github.com/LeandroMileski/news-website/issues/9)
 
 3. **Local Database**  
-   *Status*: Closed  
-   *Description*: Set up a local database for development purposes.  
+   _Status_: Closed  
+   _Description_: Set up a local database for development purposes.  
    [Issue #8](https://github.com/LeandroMileski/news-website/issues/8)
 
 4. **Tests automation**  
-   *Status*: Closed  
-   *Description*: Implemented automation for tests.  
+   _Status_: Closed  
+   _Description_: Implemented automation for tests.  
    [Issue #7](https://github.com/LeandroMileski/news-website/issues/7)
 
 5. **Architecture and folders proposal**  
-   *Status*: Closed  
-   *Description*: Proposed and implemented a project folder architecture.  
+   _Status_: Closed  
+   _Description_: Proposed and implemented a project folder architecture.  
    [Issue #6](https://github.com/LeandroMileski/news-website/issues/6)
 
 #### Issues In Progress:
+
 - These issues are currently open and being worked on. Progress is tracked within the repository.
 
 ---

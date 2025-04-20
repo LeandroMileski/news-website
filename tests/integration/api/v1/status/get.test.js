@@ -18,6 +18,6 @@ test("GET /api/v1/status", async () => {
   expect(responseBody.dependencies.database.used_connections).toBeDefined();
   // expect to be a number
   expect(responseBody.dependencies.database.used_connections).toEqual(
-    expect.any(Number)
+    expect.any(Number),
   );
 });
