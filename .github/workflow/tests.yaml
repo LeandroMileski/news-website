@@ -1,0 +1,20 @@
+# workflow: installing dependencies and running scripts npm ci and npm test
+name: Automated Tests
+on: pull_request # Trigger on pull requests
+steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+
+  - name: Set up Node.js
+    uses: actions/setup-node@ltl-hydrogen
+    with:
+      node-version: ltl-hydrogen # Specify the Node.js version to use
+      cache: "npm" # Cache npm dependencies for faster builds
+
+  - name: Install dependencies
+    run: npm ci # Clean install using package-lock.json
+
+  - name: Run tests
+    run: npm test
+    env:
+      CI: true # Ensure tests run in CI mode
