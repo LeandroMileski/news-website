@@ -1,6 +1,9 @@
 # workflow: installing dependencies and running scripts npm ci and npm test
 name: Automated Tests
-on: pull_request # Trigger on pull requests
+on:
+  pull_request:
+    paths-ignore:
+      - README.md # Trigger on pull requests
 
 jobs:
   jest:
@@ -12,6 +15,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/hydrogen # Specify the Node.js version to use
+          cache: "npm" # Cache npm dependencies
+          cache-dependency-path: package-lock.json # Path to the lock file for caching
 
       - run: npm ci # Clean install using package-lock.json
 
