@@ -1,20 +1,18 @@
 # workflow: installing dependencies and running scripts npm ci and npm test
 name: Automated Tests
 on: pull_request # Trigger on pull requests
+
 jobs:
   jest:
-    - name: Jest Ubuntu
-    - runs-on: ubuntu-latest # Use the latest Ubuntu runner
-      steps:
-        - uses: actions/checkout@v4
+    name: Jest Ubuntu
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    steps:
+      - uses: actions/checkout@v4
 
-        - uses: actions/setup-node@v4
-          with:
-            node-version: lts/hydrogen # Specify the Node.js version to use
-            cache: "npm" # Cache npm dependencies for faster builds
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/hydrogen # Specify the Node.js version to use
 
-        - name: Install dependencies
-          run: npm ci # Clean install using package-lock.json
+      - run: npm ci # Clean install using package-lock.json
 
-        - name: Run tests
-          run: npm test
+      - run: npm test
