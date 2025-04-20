@@ -4,14 +4,13 @@ on: pull_request # Trigger on pull requests
 jobs:
   jest:
     - name: Jest Ubuntu
+    - runs-on: ubuntu-latest # Use the latest Ubuntu runner
       steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
+        - uses: actions/checkout@v4
 
-        - name: Set up Node.js
-          uses: actions/setup-node@ltl-hydrogen
+        - uses: actions/setup-node@v4
           with:
-            node-version: ltl-hydrogen # Specify the Node.js version to use
+            node-version: lts/hydrogen # Specify the Node.js version to use
             cache: "npm" # Cache npm dependencies for faster builds
 
         - name: Install dependencies
@@ -19,5 +18,3 @@ jobs:
 
         - name: Run tests
           run: npm test
-          env:
-            CI: true # Ensure tests run in CI mode
