@@ -6,6 +6,7 @@ on: pull_request # Trigger on pull requests
 jobs:
   prettier:
     name: Prettier
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
     steps:
       - run: npm ci # Clean install using package-lock.json
 
