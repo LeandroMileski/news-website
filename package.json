@@ -27,6 +27,8 @@
     "wait-for-postgres": "node infra/scripts/wait-for-postgres.js"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-config-next": "^15.3.1",
