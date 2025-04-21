@@ -17,6 +17,8 @@
     "services:down": "docker compose -f infra/compose.yaml down --remove-orphans",
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
     "test": "npm run services:up && npm run wait-for-postgres && concurrently -n next,jest --hide next -k --success first \"next dev\" \"jest --runInBand\"",
     "test:watch": "jest --watchAll --runInBand",
     "migration:create": "node-pg-migrate -m infra/migrations create",
@@ -25,7 +27,11 @@
     "wait-for-postgres": "node infra/scripts/wait-for-postgres.js"
   },
   "devDependencies": {
+    "@eslint/js": "^9.25.0",
     "concurrently": "^8.2.2",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.0.0",
     "jest": "^29.7.0",
     "prettier": "^3.5.3"
   }
