@@ -1,14 +1,12 @@
 import database from "infra/database.js";
 import { describe } from "node:test";
+import orchestrator from "tests/orchestrator";
 
-beforeAll(cleanDatabase);
-//explain beforeAll
-// beforeAll is a Jest function that runs once before all tests in the file.
-// This is useful for setting up a clean state before running tests, such as resetting the database.
+beforeAll(async () => {
+  await orchestrator.waitForAllServices();
+  await orchestrator.clearDatabase();
+});
 
-async function cleanDatabase() {
-  await database.query("drop schema public cascade; create schema public");
-}
 describe("POST /api/v1/migrations", () => {
   describe("Anonymous user", () => {
     describe("Retrieving pending migrations", () => {
