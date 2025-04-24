@@ -1,17 +1,11 @@
-import js from "@eslint/js";
-import globals from "globals";
-import pluginReact from "eslint-plugin-react";
-import { defineConfig } from "eslint/config";
-
-export default defineConfig([
+import pluginNext from "@next/eslint-plugin-next";
+export default [
   {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
-    plugins: { js },
-    extends: ["js/recommended"],
+    plugins: { "@next/next": pluginNext },
+    rules: { ...pluginNext.configs.recommended.rules },
   },
   {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
-    languageOptions: { globals: globals.browser },
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: { ...pluginNext.configs.recommended.rules },
   },
-  pluginReact.configs.flat.recommended,
-]);
+];
