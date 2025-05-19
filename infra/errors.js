@@ -1,4 +1,4 @@
-class InternalServerError extends Error {
+export class InternalServerError extends Error {
   constructor({ cause }) {
     super("Unexpected Internal Error Has Occurred", {
       cause,
