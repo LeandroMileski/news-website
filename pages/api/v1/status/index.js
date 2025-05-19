@@ -34,10 +34,10 @@ async function status(request, response) {
       cause: error,
     });
 
-    console.log("Error catched in the status API: ");
+    console.log("\n Error catched in the status API: ");
     console.error(publicErrorObject);
 
-    response.status(500).json({ error: "Internal Server Error" });
+    response.status(500).json(publicErrorObject);
   }
 }
 
