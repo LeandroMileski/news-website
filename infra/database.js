@@ -1,15 +1,14 @@
-import { get } from "http";
 import { Client } from "pg";
 
 async function query(queryObject) {
   let client;
-
   try {
     client = await getNewClient();
     const result = await client.query(queryObject);
     return result;
   } catch (error) {
-    console.error("Error connecting to the database:", error);
+    console.log("\n Error catched inside database.js:");
+    console.error(error);
     throw error;
   } finally {
     await client?.end();
