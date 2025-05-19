@@ -12,7 +12,7 @@ async function query(queryObject) {
     console.error("Error connecting to the database:", error);
     throw error;
   } finally {
-    await client.end();
+    await client?.end();
   }
 }
 
