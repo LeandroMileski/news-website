@@ -9,7 +9,7 @@ async function fetchAPI() {
 export default function Home() {
   return (
     <>
-      <h1>Welcome to the Home Page</h1>
+      <h1>Welcome to the Status Page</h1>
 
       <UpdateAt />
       <div>
