@@ -23,6 +23,13 @@ async function getHandler(request, response) {
     values: [process.env.POSTGRES_DB],
   });
   const databaseUsedConnectionsValue = databaseUsedConnections.rows[0].count;
+  
+    console.log("\n Error catched in the status API: ");
+    console.error(publicErrorObject);
+
+    response.status(500).json(publicErrorObject);
+  }
+}
 
   response.status(200).json({
     updated_at: updatedAt,
