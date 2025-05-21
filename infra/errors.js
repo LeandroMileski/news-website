@@ -3,7 +3,7 @@ export class InternalServerError extends Error {
     super("Unexpected Internal Error Has Occurred", cause);
     this.name = "InternalServerError";
     this.action = "Contact the system administrator";
-    this.statusCode = 500;
+    this.statusCode = statusCode || 500;
   }
   toJSON() {
     return {
