@@ -9,8 +9,7 @@ async function fetchAPI() {
 export default function Home() {
   return (
     <>
-      <h1>Welcome to the Status Page</h1>
-
+      <h1>Status Page</h1>
       <UpdateAt />
       <div>
         <PostgresVersion />
@@ -21,6 +20,8 @@ export default function Home() {
       <div>
         <ActiveConnections />
       </div>
+      <br />
+      <a href="/">Home</a>
     </>
   );
 }
