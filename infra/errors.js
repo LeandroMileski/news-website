@@ -34,6 +34,25 @@ export class ServiceError extends Error {
   }
 }
 
+export class ValidationError extends Error {
+  constructor({ message, cause, action }) {
+    super(message || "Validation error has occurred.", {
+      cause,
+    });
+    this.name = "ValidationError";
+    this.action = action || "Adjust the request data and try again";
+    this.statusCode = 400;
+  }
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      action: this.action,
+      status_code: this.statusCode,
+    };
+  }
+}
+
 export class MethodNotAllowedError extends Error {
   constructor() {
     super("Method Not Allowed");
