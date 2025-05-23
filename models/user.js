@@ -1,5 +1,26 @@
 import database from "infra/database.js";
-import { ValidationError } from "infra/errors.js";
+import { ValidationError, NotFoundError } from "infra/errors.js";
+
+async function findOneByUsername(username) {
+  const results = await database.query({
+    text: `
+      SELECT
+        *
+      FROM
+        users
+      WHERE
+        LOWER(username) = LOWER($1)
+      ;`,
+    values: [username],
+  });
+  if (results.rowCount === 0) {
+    throw new NotFoundError({
+      message: "NotFound error has occurred.",
+      action: "Try another resource.",
+    });
+  }
+  return results.rows[0];
+}
 
 async function create(userInputValues) {
   await validateUniqueEmail(userInputValues.email);
@@ -66,12 +87,12 @@ async function create(userInputValues) {
         userInputValues.password,
       ],
     });
-    console.log("results.rows[0]:", results.rows[0]);
     return results.rows[0];
   }
 }
 
 const user = {
   create,
+  findOneByUsername,
 };
 export default user;
