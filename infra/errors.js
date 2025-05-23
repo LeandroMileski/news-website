@@ -34,6 +34,25 @@ export class ServiceError extends Error {
   }
 }
 
+export class NotFoundError extends Error {
+  constructor({ message, cause, action }) {
+    super(message || "NotFound error has occurred.", {
+      cause,
+    });
+    this.name = "NotFoundError";
+    this.action = action || "Try another resource";
+    this.statusCode = 404;
+  }
+  toJSON() {
+    return {
+      name: this.name,
+      message: this.message,
+      action: this.action,
+      status_code: this.statusCode,
+    };
+  }
+}
+
 export class ValidationError extends Error {
   constructor({ message, cause, action }) {
     super(message || "Validation error has occurred.", {
