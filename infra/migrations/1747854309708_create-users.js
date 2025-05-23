@@ -17,17 +17,19 @@ exports.up = (pgm) => {
       unique: true,
     },
     password: {
-      //safe length for bcrypt
-      type: "varchar(72)",
+      //bcrypt hash output is 60 char long
+      type: "varchar(60)",
       notNull: true,
     },
     created_at: {
       type: "timestamptz",
-      default: pgm.func("now()"),
+      default: pgm.func("timezone('UTC', now())"),
+      notNull: true,
     },
     updated_at: {
       type: "timestamptz",
-      default: pgm.func("now()"),
+      default: pgm.func("timezone('UTC', now())"),
+      notNull: true,
     },
   });
 };

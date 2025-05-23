@@ -2,7 +2,6 @@ import {
   InternalServerError,
   MethodNotAllowedError,
   ValidationError,
-  ServiceError,
   NotFoundError,
 } from "infra/errors";
 
