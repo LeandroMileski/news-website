@@ -1,8 +1,9 @@
-import { time } from "console";
 import database from "infra/database.js";
 import { describe } from "node:test";
 import orchestrator from "tests/orchestrator";
 import { version as uuidVersion } from "uuid";
+import user from "models/user.js";
+import password from "models/password.js";
 
 beforeAll(async () => {
   await orchestrator.waitForAllServices();
@@ -21,21 +22,36 @@ describe("POST /api/v1/users", () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: "emailduplicado",
-          email: "email@duplicado.com",
+          username: "leandromileski",
+          email: "leandro@email.com",
           password: "123456",
         }),
       });
       expect(response1.status).toBe(201);
       const responseBody = await response1.json();
       expect(responseBody).toEqual({
-        id: expect.any(String),
-        username: "emailduplicado",
-        email: "email@duplicado.com",
-        password: expect.any(String),
-        created_at: expect.any(String),
-        updated_at: expect.any(String),
+        id: responseBody.id,
+        username: "leandromileski",
+        email: "leandro@email.com",
+        password: responseBody.password,
+        created_at: responseBody.created_at,
+        updated_at: responseBody.updated_at,
       });
+      expect(uuidVersion(responseBody.id)).toBe(4);
+      expect(Date.parse(responseBody.created_at)).not.toBeNaN();
+      expect(Date.parse(responseBody.updated_at)).not.toBeNaN();
+
+      const userInDatabase = await user.findOneByUsername("leandromileski");
+      const correctPasswordMatch = await password.compare(
+        "123456",
+        userInDatabase.password,
+      );
+      const incorrectPasswordMatch = await password.compare(
+        "IncorrectPass",
+        userInDatabase.password,
+      );
+      expect(correctPasswordMatch).toBe(true);
+      expect(incorrectPasswordMatch).toBe(false);
     });
 
     test("With duplicated 'email'", async () => {
@@ -46,8 +62,8 @@ describe("POST /api/v1/users", () => {
         },
         body: JSON.stringify({
           username: "emailduplicado",
-          email: "Email@duplicado.com",
-          password: "123456",
+          email: "Leandro@email.com",
+          password: "12345",
         }),
       });
       expect(response2.status).toBe(400);
@@ -69,7 +85,7 @@ describe("POST /api/v1/users", () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: "Emailduplicado",
+          username: "LeandroMileski",
           email: "email@unico.com",
           password: "123456",
         }),
