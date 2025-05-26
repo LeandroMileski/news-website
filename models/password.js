@@ -7,11 +7,15 @@ async function hash(password) {
 
 function getNumberofRounds() {
   const env = process.env.NODE_ENV;
-  if (env === "development") {
-    return 1;
-  }
-  if (env === "production") {
-    return 14;
+  switch (env) {
+    case "development":
+      return 1;
+    case "test":
+      return 1;
+    case "production":
+      return 14;
+    default:
+      return 10; // Safe default for unknown environments
   }
 }
 
